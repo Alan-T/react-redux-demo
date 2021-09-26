@@ -1,4 +1,6 @@
 
+import { UPDATE_Title } from '../actions/global';
+
 const initState = {
     title: '我是标题',
     copyright: '我是版权'
@@ -7,7 +9,7 @@ const initState = {
 const global = (state = initState, action) => {
     const { payload } = action;
     switch (action.type) {
-        case 'setDefaultSetting':
+        case UPDATE_Title:
             return { ...state, title: payload.title, copyright: payload.copyright }
         default:
             return state;
