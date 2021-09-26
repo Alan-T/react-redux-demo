@@ -1,7 +1,7 @@
 'use strict';
 
-export const UPDATE_Title = 'UPDATE_Title';
+export const UPDATE_TITLE = 'UPDATE_TITLE';
 
 export const setDefaultSetting = (payload) => {
-    return { type: UPDATE_Title, payload }
+    return { type: UPDATE_TITLE, payload }
 }

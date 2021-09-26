@@ -1,5 +1,5 @@
 
-import { UPDATE_Title } from '../actions/global';
+import { UPDATE_TITLE } from '../actions/global';
 
 const initState = {
     title: '我是标题',
@@ -9,7 +9,7 @@ const initState = {
 const global = (state = initState, action) => {
     const { payload } = action;
     switch (action.type) {
-        case UPDATE_Title:
+        case UPDATE_TITLE:
             return { ...state, title: payload.title, copyright: payload.copyright }
         default:
             return state;
