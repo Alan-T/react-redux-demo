@@ -1,12 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 const Home = (props) => {
+    debugger
     return (
         <div>
             Home
+            {props.global.title}
             <Link to="/news">News</Link>
         </div >
     )
 }
-export default Home
+export default connect(({ global }) => ({
+    global
+}))(Home)

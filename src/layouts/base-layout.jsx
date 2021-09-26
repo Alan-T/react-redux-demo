@@ -5,7 +5,6 @@ import Main from "./main";
 import Footer from './footer';
 
 const BaseLayout = (props) => {
-    debugger
     return <React.Fragment>
         <Header />
         <Main props={props} >
