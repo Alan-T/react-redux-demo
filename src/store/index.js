@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import thunk from "redux-thunk";
+import createSagaMiddleware from 'redux-saga'
 import reducers from '../reducers';
+import rootSaga from "../actions";
 
-const store = createStore(combineReducers(reducers), applyMiddleware(thunk));
-
+const sagaMiddleware=createSagaMiddleware();
+const store = createStore(combineReducers(reducers), applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga)
 export default store;

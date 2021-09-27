@@ -1,4 +1,3 @@
-
 import { UPDATE_TITLE } from '../actions/global';
 
 const initState = {
