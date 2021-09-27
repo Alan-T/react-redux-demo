@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+const Setting = (props) => {
+    const { dispatch } = props;
+    const [title, setTitle] = useState('标题')
 
-const Setting = () => {
+    const updateTitle = () => {
+        dispatch({
+            type: 'setting/changeSetting',
+            payload: {
+                title: title,
+                copyright: '',
+            }
+        })
+    }
+
     return (
         <div>
-            Setting
+            <h1>设置</h1>
+            <label htmlFor="">修改标题：</label> <input type="text" value={title} onChange={(e) => { setTitle(e.target.value) }} />
+            <button onClick={updateTitle}>修改标题</button>
+
         </div >
     )
 }
-export default Setting
+export default connect()(Setting)

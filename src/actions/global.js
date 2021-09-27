@@ -1,17 +1,27 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 
-export const UPDATE_TITLE = 'UPDATE_TITLE';
+export const FETCH_NOTICES = 'FETCH_NOTICES';
+export const CLEAR_NOTICES = 'CLEAR_NOTICES';
 
-function* setDefaultSetting({ payload }) {
+function* fetchNotices({ payload }) {
     try {
-        yield put({ type: UPDATE_TITLE, payload })
+        yield put({ type: FETCH_NOTICES, payload })
     } catch (error) {
-        yield put({ type: UPDATE_TITLE, error })
+        yield put({ type: FETCH_NOTICES, error })
+    }
+}
+
+function* clearNotices({ payload }) {
+    try {
+        yield put({ type: CLEAR_NOTICES, payload })
+    } catch (error) {
+        yield put({ type: CLEAR_NOTICES, error })
     }
 }
 
 const globalSaga = function* () {
-    yield takeEvery("global/updateSetting", setDefaultSetting);
+    yield takeEvery("global/fetchNotices", fetchNotices);
+    yield takeEvery("global/clearNotices", clearNotices);
 }
 
 export default globalSaga;

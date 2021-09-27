@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import styles from './style.module.less';
 
-const Header = () => {
+const Header = ({ setting }) => {
     return <React.Fragment>
         <header>
             <section>
                 <Link to="/" className={styles.navHome}>
-                    标题图片
+                    {setting.title}
                 </Link>
                 <nav>
                     <Link to="/home">首页</Link>
@@ -23,4 +24,6 @@ const Header = () => {
     </React.Fragment >
 }
 
-export default Header
+export default connect(({ setting }) => ({
+    setting
+}))(Header)

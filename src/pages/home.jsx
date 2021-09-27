@@ -3,29 +3,21 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Home = (props) => {
-    const { dispatch } = props;
-
-    const alterTitle = () => {
-        dispatch({
-            type: 'global/updateSetting',
-            payload: {
-                title: '我是修改过的标题',
-                copyright: '',
-            }
-        })
-    }
+    const { setting } = props;
 
     return (
         <div>
-            Home
-            {props.global.title}
-            <Link to="/news">News</Link>
-            <button onClick={alterTitle}>
-                修改标题
-            </button>
+            <h1>首页</h1>
+            <div>
+                标题名称： {setting.title}
+            </div>
+
+            <div>
+                <Link to="/news">跳转到News页面</Link>
+            </div>
         </div >
     )
 }
-export default connect(({ global }) => ({
-    global
+export default connect(({ setting }) => ({
+    setting
 }))(Home)

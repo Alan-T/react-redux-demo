@@ -1,15 +1,16 @@
-import { UPDATE_TITLE } from '../actions/global';
+import { FETCH_NOTICES, CLEAR_NOTICES } from '../actions/global';
 
 const initState = {
-    title: '我是标题',
-    copyright: '我是版权'
+    notices: [],
 }
 
 const global = (state = initState, action) => {
     const { payload } = action;
     switch (action.type) {
-        case UPDATE_TITLE:
-            return { ...state, title: payload.title, copyright: payload.copyright }
+        case FETCH_NOTICES:
+            return { ...state, notices: payload }
+        case CLEAR_NOTICES:
+            return { ...state, notices: payload }
         default:
             return state;
     }
